@@ -1,4 +1,22 @@
 new Vue({
+  el: "#stylingApp",
+  data: {
+    attachRed: false,
+    divClass: "green",
+    divColor: "grey",
+    width: 100
+  },
+  computed: {
+    myStyle: function() {
+      return { 
+        backgroundColor: this.divColor,
+        width: this.width + "px"
+      } 
+    }
+  }
+})
+
+new Vue({
     el: "#eventsApp2",
     data: {
         counter: 0,
@@ -60,6 +78,62 @@ new Vue({
             return this.title;
         }
     }
+});
+
+new Vue({
+  el: '#exercise4',
+  data: {
+    effectOn: false,
+    highlight: false,
+    higher: "higher",
+    further: { further: true },
+    firstClass: "",
+    secondClass: "",
+    thirdClassTrueOrFalse: false,
+    myMargin: 0,
+    progressBarWidth: 0
+  },
+  computed: {
+    effectClass: function() {
+      return {
+        highlight: this.effectOn && this.highlight,
+        shrink: this.effectOn && !this.highlight
+      }
+    },
+    faster: function() {
+      return {
+        faster: this.highlight
+      }
+    },
+    thirdClass: function() {
+      return {
+        further: this.thirdClassTrueOrFalse
+      }
+    },
+    divClasses: function() {
+      return [
+        this.secondClass,
+        this.thirdClass
+      ]
+    }
+  },
+  methods: {
+    startEffect: function() {
+      this.effectOn = true;
+      var mv = this;
+      setInterval(function() {
+        mv.highlight = !mv.highlight;
+      }, 1000);
+    },
+    startProgress: function() {
+      var mv = this;
+      setInterval(function() {        
+        if (mv.progressBarWidth < 100) {
+          mv.progressBarWidth += 1;
+        }
+      }, 500);
+    }
+  }
 });
 
 new Vue({
