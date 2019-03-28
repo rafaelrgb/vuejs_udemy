@@ -1,0 +1,81 @@
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Conditionals and Lists</title>
+    <meta name="description" content="Conditionals and Lists">
+    <meta name="author" content="Rafael">
+
+    <script src="vue.js"></script>
+
+    <link rel="stylesheet" href="css/style.css?v=1.0">
+
+  </head>
+
+  <body>
+
+    <div id="ifApp">
+      <p v-if="show">You can see me!</p>
+      <template v-else>
+        <h1>Heading</h1>
+        <p>Inside a template</p>
+      </template>
+      <p v-show="!show">Do you also see me?</p>
+      <button @click="show = !show">Switch</button>
+    </div>
+
+    <div id="listApp">
+      <ul>
+        <li v-for="(ingredient, i) in ingredients">{{ ingredient }} ({{ i }})</li>
+      </ul>
+      <button @click="ingredients.push('spices')">Add New</button>
+
+      <template v-for="(ingredient, index) in ingredients">
+        <h1>{{ ingredient }}</h1>
+        <p>{{ index }}</p>
+      </template>
+
+      <ul>
+        <li v-for="person in persons">
+          <div v-for="(value, key, index) in person"><b>{{ key }}:</b> {{ value }} ({{ index }})</div>
+        </li>
+      </ul>
+
+      <p><span v-for="n in 10">{{ n }}</span></p>
+    </div>
+
+    <div id="exercise">
+      <!-- 1) Hook up the button to toggle the display of the two paragraphs. Use both v-if and v-show and inspect the elements to see the difference -->
+      <div>
+        <button @click="show = !show">Toggle</button>
+        <p v-if="show">You either see me ...</p>
+        <p v-else>...or me</p>
+        <p v-show="show">You either see me ...</p>
+        <p v-show="!show">...or me</p>
+      </div>
+      <!-- 2) Output an <ul> of array elements of your choice. Also print the index of each element. -->
+      <ul>
+        <li v-for="(name, i) in array">{{ name }} ({{ i }})</li>
+      </ul>
+      <!-- 3) Print all key-value pairs of the following object: {title: 'Lord of the Rings', author: 'J.R.R. Tolkiens', books: '3'}. Also print the index of each item. -->
+      <ul>
+        <li v-for="(value, key, index) in myObject">({{ index }}) <b>{{ key }}:</b> {{ value }}</li>
+      </ul>
+      <!-- 4) Print the following object (only the values) and also create a nested loop for the array: {name: 'TESTOBJECT', data: [1.67, 1.33, 0.98, 2.21]} (hint: use v-for and v-if to achieve this) -->
+      <ul>
+        <li v-for="value in testData">
+          <template  v-if="value.constructor === Array">
+              <span v-for="number in value">{{ number }} </span>
+          </template>
+          <template v-else>{{ value }}</template>
+        </li>
+      </ul>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+
+</html>
