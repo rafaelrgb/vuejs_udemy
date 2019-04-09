@@ -1,0 +1,112 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.status-screen {
+  width: 50%;
+  float: left;
+  margin-bottom: 30px;
+}
+
+.status-screen-body {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.status-screen h1 {
+  text-align: center;
+}
+
+.health-bar {
+  width: 100%;
+  height: 20px;
+  background-color: lightgray;
+}
+
+.health-bar-inner {
+  height: 100%;
+  background-color: mediumseagreen;
+  text-align: center;
+  transition: width 500ms;
+}
+
+.action-bar {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  clear: both;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+.action-bar-body {
+  display: block;
+  margin: auto;
+}
+
+button {
+  border: 1px solid black;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-new-game {
+  background-color: white;
+}
+
+.btn-attack {
+  background-color: red;
+  color: white;
+}
+
+.btn-special-attack {
+  background-color: orange;
+  color: white;
+}
+
+.btn-heal {
+  background-color: green;
+  color: white;
+}
+
+.btn-give-up {
+  background-color: white;
+}
+
+.log {
+  background-color: lightgray;
+  padding: 5px;
+}
+
+.log ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.log ul li {
+  list-style: none;
+}
+
+.log-msg {
+  background-color: rgb(168, 168, 168);
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.log-msg.log-attack {
+  color: blue;
+}
+
+.log-msg.log-damage {
+  color: red;
+}
+
+.log-msg.log-heal {
+  color: green;
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

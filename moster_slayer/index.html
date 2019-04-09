@@ -1,0 +1,69 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Monster Slayer</title>
+  <meta name="description" content="Monster Slayer">
+  <meta name="author" content="Rafael">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <script src="vue.js"></script>
+
+  <link rel="stylesheet" href="css/style.css?v=1.0">
+
+</head>
+
+<body>
+
+  <div id="monsterSlayerApp" class="container">
+
+    <section>
+      <div class="status-screen">
+        <div class="status-screen-body">
+          <h1>YOU</h1>
+          <div class="health-bar">
+            <div class="health-bar-inner" :style="playerHealthBar">{{ playerHp }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="status-screen">
+        <div class="status-screen-body">
+          <h1>MONSTER</h1>
+          <div class="health-bar">
+            <div class="health-bar-inner" :style="monsterHealthBar">{{ monsterHp }}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="action-bar" v-if="!gameIsRunning">
+      <div class="action-bar-body">
+        <button type="button" class="btn-new-game" @click="startNewGame">START NEW GAME</button>
+      </div>
+    </section>
+    <section class="action-bar" v-else>
+      <div class="action-bar-body">
+        <button type="button" class="btn-attack" @click="attack">ATTACK</button>
+        <button type="button" class="btn-special-attack" @click="specialAttack">SPECIAL ATTACK</button>
+        <button type="button" class="btn-heal" @click="heal">HEAL</button>
+        <button type="button" class="btn-give-up" @click="giveUp">GIVE UP</button>
+      </div>
+    </section>
+
+    <section class="log" v-if="log.length > 0">
+      <ul>
+          <li class="log-msg" v-for="entry in log" :class="'log-' + entry.type">{{ entry.msg }}</li>
+      </ul>      
+    </section>
+
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
