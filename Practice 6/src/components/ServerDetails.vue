@@ -22,7 +22,7 @@ export default {
     methods: {
         resetStatus() {
             this.server.status = "Normal";
-            this.eventBus.$emit("serverEdited", this.server);
+            eventBus.$emit("serverEdited", this.server);
         }
     },
     created() {
