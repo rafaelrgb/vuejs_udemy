@@ -1,4 +1,4 @@
-# vue-cli
+# components_basics
 
 > A Vue.js project
 

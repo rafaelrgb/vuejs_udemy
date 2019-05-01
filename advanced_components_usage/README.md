@@ -1,6 +1,6 @@
-# module6
+# Advanced Components Usage
 
-> companion project for Module 6 
+> companion project for Advanced Components Usage
 
 ## Build Setup
 
