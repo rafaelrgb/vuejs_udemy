@@ -1,6 +1,6 @@
-# Advanced Components Usage
+# advanced-component-usage
 
-> companion project for Advanced Components Usage
+> A Vue.js project
 
 ## Build Setup
 
