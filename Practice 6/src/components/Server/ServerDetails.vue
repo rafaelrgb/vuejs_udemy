@@ -1,5 +1,5 @@
 <template>
-    <p v-if="server.id == null">No Server selected.</p>
+    <p v-if="!server">No Server selected.</p>
     <div v-else>
         <p>Server id: {{ server.id }}</p>
         <p>Server status: {{ server.status }}</p>
@@ -8,21 +8,17 @@
 </template>
 
 <script>
-import { eventBus } from "../main";
+import { eventBus } from "../../main";
 
 export default {
     data() {
         return {
-            server: {
-                id: null,
-                status: ""
-            }
+            server: null
         };
     },
     methods: {
         resetStatus() {
             this.server.status = "Normal";
-            eventBus.$emit("serverEdited", this.server);
         }
     },
     created() {

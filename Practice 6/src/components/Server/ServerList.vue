@@ -3,14 +3,12 @@
         <p6-server-status
             v-for="server in servers"
             :key="server.id"
-            :serverId="server.id"
-            :serverStatus="server.status"
+            :server="server"
         ></p6-server-status>
     </ul>
 </template>
 
 <script>
-import { eventBus } from "../main";
 import ServerStatus from "./ServerStatus.vue";
 
 export default {
@@ -26,15 +24,6 @@ export default {
     },
     components: {
         "p6-server-status": ServerStatus
-    },
-    created() {
-        eventBus.$on("serverEdited", newData => {
-            for (var i = 0; i < this.servers.length; i++) {
-                if (this.servers[i].id == newData.id) {
-                    this.servers[i].status = newData.status;
-                }
-            }
-        });
     }
 };
 </script>
